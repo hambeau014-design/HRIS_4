@@ -1,0 +1,49 @@
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  min-width: 320px;
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Noto Sans KR", Arial, sans-serif;
+  background: #f8fafc;
+  color: #1f2937;
+  text-align: left;
+}
+
+#root {
+  min-height: 100vh;
+  width: 100%;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+
+:focus-visible {
+  outline: 2px solid #15b9dc;
+  outline-offset: 2px;
+}
+
+img { max-width: 100%; }
+
+
+/* HRIS 공통 가독성 및 반응형 기본값 */
+input, button, select, textarea { min-height: 1.25rem; }
+button:disabled { cursor: not-allowed; }
+@media (max-width: 640px) {
+  body { overflow-x: hidden; }
+}

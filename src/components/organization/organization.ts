@@ -1,0 +1,1 @@
+export { CompanyInformationSection } from "./CompanyInformationSection";
