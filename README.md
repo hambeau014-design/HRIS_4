@@ -7,6 +7,67 @@
 
 ((데이터연동이 중요한거니 괜찮다고 믿고 싶습니다))
 
+## 프론트엔드 구조
+
+HRIS_4/
+│
+├── public/
+│   └── img/
+│       └── 아이콘 및 이미지 파일
+│
+├── src/
+│   │
+│   ├── api/
+│   │   ├── client.ts 공통 API 요청 처리
+│   │   ├── employeeApi.ts 사원 관련 API
+│   │   ├── salaryApi.ts 급여 관련 API
+│   │   └── evaluationApi.ts 평가 관련 API
+│   │
+│   ├── components/ 화면 구성 요소
+│   │   ├── common/
+│   │   │   ├── NavigationSidebarSection/ 네비게이션 바
+│   │   │   └── SearchAndActionsSection/ 검색창
+│   │   │
+│   │   ├── employee/
+│   │   ├── salary/
+│   │   ├── organization/
+│   │   ├── evaluation/
+│   │   └── document/
+│   │
+│   ├── layouts/
+│   │   ├── MainLayout.tsx 관리자 화면의 공통 틀
+│   │   └── EmployeeLayout.tsx 직원 화면의 공통 틀
+│   │
+│   ├── pages/
+│   │   ├── admin/
+│   │   │   ├── Dashboard.tsx
+│   │   │   ├── Employee.tsx
+│   │   │   ├── Salary.tsx
+│   │   │   ├── Organization.tsx
+│   │   │   ├── Evaluation.tsx
+│   │   │   └── Document.tsx
+│   │   │
+│   │   └── employee/
+│   │       ├── MyInfo.tsx
+│   │       ├── Evaluation.tsx
+│   │       └── Document_e.tsx
+│   │
+│   ├── mocks/ 테스트용 임시 데이터(백엔드 전 사용)
+│   │   ├── employee.ts
+│   │   ├── salary.ts
+│   │   └── evaluation.ts
+│   │
+│   ├── App.tsx 페이지 연결
+│   ├── main.tsx
+│   └── index.css
+│
+├── package.json
+├── tsconfig.json
+├── vite.config.ts
+└── README.md
+
+
+
 ## 관리자/사원 구분
 사이드바에서 선택 메뉴를 다르게 배치함으로써 차이 지정
 다른 메뉴도 막혀있긴 하나 추후 수정할 예정
