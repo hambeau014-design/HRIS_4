@@ -1,45 +1,59 @@
-# HRIS 인사 관리 시스템 구현 중
+# HRIS – 인사관리시스템
 
-피그마로 구현된 와이어프레임을 일일히 코딩하기 힘들다고 판단하여
-피그마 플러그인을 사용하여 빠르게 react와 css를 출력했습니다.
+**HRIS(Human Resource Information System)**는 기업의 인사 업무를 효율적으로 관리하기 위한 웹 기반 인사관리시스템입니다.
 
-교수님이 해당 부분을 질문하시는 경우, 플러그인과 AI를 일정 부분 사용했다고 인정해야 될 것 같습니다....
+관리자와 일반 직원의 권한을 구분하고, 사원 정보, 급여, 조직, 평가, 문서 등의 기능을 제공합니다.
 
-((데이터연동이 중요한거니 괜찮다고 믿고 싶습니다))
+## 📌 주요 기능
 
-## 프론트엔드 구조
+| 구분 | 주요 기능 |
+|---|---|
+| 대시보드 | 인사 관련 주요 현황 확인 |
+| 사원 관리 | 사원 목록 조회 및 상세 정보 관리 |
+| 급여 관리 | 급여 정보 및 변경 이력 조회 |
+| 조직 관리 | 부서 및 직급 관리 |
+| 평가 관리 | 인사 평가 현황 및 평가 대상 관리 |
+| 문서 관리 | 인사 관련 문서 관리 |
+| 직원 페이지 | 내 정보, 평가, 문서 확인 |
 
+## 🛠️ 기술 스택
+
+- **Frontend:** React, TypeScript
+- **Build Tool:** Vite
+- **Styling:** Tailwind CSS
+- **Routing:** React Router
+- **Version Control:** Git, GitHub
+
+## 📁 프로젝트 파일 구조
+
+```text
 HRIS_4/
 │
 ├── public/
-│   └── img/
-│       └── 아이콘 및 이미지 파일
+│   └── img/                    # 이미지 및 아이콘 리소스
 │
 ├── src/
 │   │
-│   ├── api/
-│   │   ├── client.ts 공통 API 요청 처리
-│   │   ├── employeeApi.ts 사원 관련 API
-│   │   ├── salaryApi.ts 급여 관련 API
-│   │   └── evaluationApi.ts 평가 관련 API
+│   ├── api/                    # 백엔드 API 통신
+│   │   ├── client.ts           # 공통 API 요청 처리
+│   │   ├── employeeApi.ts      # 사원 관련 API
+│   │   ├── salaryApi.ts        # 급여 관련 API
+│   │   └── evaluationApi.ts    # 평가 관련 API
 │   │
-│   ├── components/ 화면 구성 요소
-│   │   ├── common/
-│   │   │   ├── NavigationSidebarSection/ 네비게이션 바
-│   │   │   └── SearchAndActionsSection/ 검색창
-│   │   │
-│   │   ├── employee/
-│   │   ├── salary/
-│   │   ├── organization/
-│   │   ├── evaluation/
-│   │   └── document/
+│   ├── components/             # 재사용 가능한 UI 컴포넌트
+│   │   ├── common/             # 공통 UI
+│   │   ├── employee/           # 사원 관리 컴포넌트
+│   │   ├── salary/             # 급여 관리 컴포넌트
+│   │   ├── organization/       # 조직 관리 컴포넌트
+│   │   ├── evaluation/         # 평가 관리 컴포넌트
+│   │   └── document/           # 문서 관리 컴포넌트
 │   │
-│   ├── layouts/
-│   │   ├── MainLayout.tsx 관리자 화면의 공통 틀
-│   │   └── EmployeeLayout.tsx 직원 화면의 공통 틀
+│   ├── layouts/                # 페이지 공통 레이아웃
+│   │   ├── MainLayout.tsx      # 관리자 레이아웃
+│   │   └── EmployeeLayout.tsx  # 직원 레이아웃
 │   │
-│   ├── pages/
-│   │   ├── admin/
+│   ├── pages/                  # 페이지 단위 화면
+│   │   ├── admin/              # 관리자 페이지
 │   │   │   ├── Dashboard.tsx
 │   │   │   ├── Employee.tsx
 │   │   │   ├── Salary.tsx
@@ -47,45 +61,92 @@ HRIS_4/
 │   │   │   ├── Evaluation.tsx
 │   │   │   └── Document.tsx
 │   │   │
-│   │   └── employee/
+│   │   └── employee/           # 직원 페이지
 │   │       ├── MyInfo.tsx
 │   │       ├── Evaluation.tsx
 │   │       └── Document_e.tsx
 │   │
-│   ├── mocks/ 테스트용 임시 데이터(백엔드 전 사용)
-│   │   ├── employee.ts
-│   │   ├── salary.ts
-│   │   └── evaluation.ts
-│   │
-│   ├── App.tsx 페이지 연결
-│   ├── main.tsx
-│   └── index.css
+│   ├── mocks/                  # 테스트용 임시 데이터
+│   ├── App.tsx                 # 라우팅 및 페이지 연결
+│   ├── main.tsx                # 애플리케이션 진입점
+│   └── index.css               # 전역 스타일
 │
-├── package.json
-├── tsconfig.json
-├── vite.config.ts
-└── README.md
+├── package.json                # 프로젝트 의존성 및 명령어
+├── tsconfig.json               # TypeScript 설정
+├── vite.config.ts              # Vite 설정
+└── README.md                   # 프로젝트 문서
+```
 
+## 🗂️ 폴더별 역할
 
+### 1. `pages/`
+관리자와 직원이 사용하는 페이지를 구분하여 관리합니다.
 
-## 관리자/사원 구분
-사이드바에서 선택 메뉴를 다르게 배치함으로써 차이 지정
-다른 메뉴도 막혀있긴 하나 추후 수정할 예정
+### 2. `components/`
+페이지 내부에 들어가는 기능별 UI 요소를 컴포넌트 단위로 분리하여 재사용성을 높입니다.
 
---------임시데이터------------
+### 3. `layouts/`
+각 사용자 유형에 맞는 공통 화면 구조를 제공합니다.
 
-관리자 계정
-id : admin
-passwd : 12345
+- `MainLayout`: 관리자 화면
+- `EmployeeLayout`: 직원 화면
 
-사원 계정
-id : user
-passwd : 12345
+### 4. `api/`
+백엔드 서버와 통신하는 기능을 담당합니다. 공통 요청 처리와 기능별 API를 분리하여 관리합니다.
 
+### 5. `mocks/`
+백엔드 연동 전 또는 테스트 과정에서 사용할 임시 데이터를 관리합니다.
 
-## src/api 폴더
+### 6. `public/`
+로고, SVG 아이콘, 이미지 등 정적 리소스를 관리합니다.
 
-각 사이드바 메뉴에 따른 api를 설계했습니다(잘 설계된거지 모르겠네요)
+## 🔄 애플리케이션 동작 구조
 
-평가관리 부분이랑 문서 결재 부분이 약간 비뚤게 출력됩니다.흠.제가 시간이 된다면 최대한 수정해보겠습니다.
+```text
+사용자 접속
+    │
+    ▼
+  App.tsx
+    │
+    ├── 관리자
+    │     └── MainLayout
+    │            └── Admin Pages
+    │
+    └── 직원
+          └── EmployeeLayout
+                 └── Employee Pages
 
+각 페이지
+    │
+    ▼
+Components
+    │
+    ▼
+API Client
+    │
+    ▼
+Backend Server
+```
+
+## 🚀 실행 방법
+
+프로젝트를 내려받은 후 터미널에서 다음 명령어를 실행합니다.
+
+```bash
+npm install
+npm run dev
+```
+
+개발 서버가 실행되면 터미널에 표시되는 로컬 주소로 접속합니다.
+
+## 👥 사용자 권한
+
+| 구분 | 접근 기능 |
+|---|---|
+| 관리자 (ADMIN) | 대시보드, 사원, 급여, 조직, 평가, 문서 관리 |
+| 직원 (USER) | 내 정보, 평가, 개인 문서 확인 |
+
+---
+
+**HRIS – Human Resource Information System**  
+인사 업무의 효율적인 관리와 사용자별 맞춤형 정보 제공을 위한 웹 프로젝트
