@@ -61,7 +61,7 @@ HRIS_4/
 │   │   │   ├── Evaluation.tsx
 │   │   │   └── Document.tsx
 │   │   │
-│   │   └── employee/           # 직원 페이지
+│   │   └── employee/           # 직원 페이지(아직 오류 발생중...)
 │   │       ├── MyInfo.tsx
 │   │       ├── Evaluation.tsx
 │   │       └── Document_e.tsx
@@ -147,6 +147,3 @@ npm run dev
 | 직원 (USER) | 내 정보, 평가, 개인 문서 확인 |
 
 ---
-
-**HRIS – Human Resource Information System**  
-인사 업무의 효율적인 관리와 사용자별 맞춤형 정보 제공을 위한 웹 프로젝트
